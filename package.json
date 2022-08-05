@@ -10,7 +10,7 @@
   "scripts": {
     "clean": ""
   },
-  "repository": "github:magento/pwa-studio",
+  "repository": "git@github.com:m2-pwa-laybuy.git",
   "license": "(OSL-3.0 OR AFL-3.0)",
   "peerDependencies": {
     "@magento/peregrine": "~10.0.0",
