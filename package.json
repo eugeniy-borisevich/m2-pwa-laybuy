@@ -1,0 +1,29 @@
+{
+  "name": "@raisetech/m2-pwa-laybuy",
+  "author": "E.Borisevich <eugeniy.borisevich@raisetech.net>",
+  "version": "1.0.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "description": "Provides LayBuy Payment Method for PWA Studio.",
+  "main": "./intercept.js",
+  "scripts": {
+    "clean": ""
+  },
+  "repository": "github:magento/pwa-studio",
+  "license": "(OSL-3.0 OR AFL-3.0)",
+  "peerDependencies": {
+    "@magento/peregrine": "~10.0.0",
+    "@magento/pwa-buildpack": "~9.0.0",
+    "@magento/venia-ui": "~7.0.0",
+    "react": "~17.0.1",
+    "react-intl": "~5.7.0",
+    "react-router-dom": "~5.1.0"
+  },
+  "pwa-studio": {
+    "targets": {
+      "intercept": "./intercept.js"
+    }
+  }
+}
+
