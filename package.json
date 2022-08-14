@@ -1,6 +1,6 @@
 {
   "name": "@raisetech/m2-pwa-laybuy",
-  "author": "E.Borisevich <eugeniy.borisevich@raisetech.net>",
+  "author": "Eugeniy Borisevich <eugeniy.borisevich@raisetech.net>",
   "version": "1.0.0",
   "publishConfig": {
     "access": "public"
@@ -24,6 +24,8 @@
     "targets": {
       "intercept": "./intercept.js"
     }
+  },
+  "dependencies": {
+    "axios": "^0.27.2"
   }
 }
-

@@ -1,10 +1,8 @@
 import { useCallback, useEffect } from 'react';
-import {useQuery, useMutation} from '@apollo/client';
+import {gql, useQuery, useMutation} from '@apollo/client';
 import mergeOperations from '@magento/peregrine/lib/util/shallowMerge';
 import { useCartContext } from '@magento/peregrine/lib/context/cart';
 import DEFAULT_OPERATIONS from './laybuy.gql';
-import axios from 'axios';
-import {LAYBUY_M2_BACKEND_URL} from "../config";
 
 /**
  * Talon to handle laybuy payment.
@@ -23,8 +21,10 @@ import {LAYBUY_M2_BACKEND_URL} from "../config";
  *  onBillingAddressChangedSuccess: Function
  * }
  */
+
 export const useLaybuy = props => {
-    const operations = mergeOperations(DEFAULT_OPERATIONS, props.operations)
+    const operations = mergeOperations(DEFAULT_OPERATIONS, props.operations);
+
     const {
         getLaybuyConfigQuery,
         setPaymentMethodOnCartMutation,
@@ -60,21 +60,13 @@ export const useLaybuy = props => {
     }, [updatePaymentMethod, cartId]);
 
 
+
     useEffect(() => {
         const paymentMethodMutationCompleted =
             paymentMethodMutationCalled && !paymentMethodMutationLoading;
 
         if (paymentMethodMutationCompleted && !paymentMethodMutationError) {
-            axios.get( LAYBUY_M2_BACKEND_URL,{
-                params: {
-                    fromPwa: 'true',
-                    cartId: cartId,
-                }
-            }).then(function (response) {
-                if (response.data.redirect_url){
-                    window.location.href = response.data.redirect_url;
-                }
-            })
+
             onPaymentSuccess();
         }
 
@@ -88,7 +80,7 @@ export const useLaybuy = props => {
         onPaymentSuccess,
         onPaymentError,
         resetShouldSubmit,
-        cartId,
+        cartId
     ]);
 
     return {

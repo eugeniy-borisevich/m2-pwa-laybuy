@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import { useParams } from "react-router-dom";
 import {StoreTitle} from "@magento/venia-ui/lib/components/Head";
 import { FormattedMessage, useIntl } from 'react-intl';
-import defaultClasses from '@magento/venia-ui/lib/components/CheckoutPage/OrderConfirmationPage/orderConfirmationPage.css';
+import defaultClasses from '@magento/venia-ui/lib/components/CheckoutPage/OrderConfirmationPage/orderConfirmationPage.module.css';
 import axios from "axios";
 import BrowserPersistence from "@magento/peregrine/lib/util/simplePersistence";
 import {LAYBUY_M2_BACKEND_URL} from "../config";

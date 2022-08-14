@@ -11,14 +11,14 @@ module.exports = targets => {
             graphqlQueries: true
         };
     });
-    targets.of("@magento/venia-ui").routes.tap(routes => {
-        routes.push({
-            name: "LayBuyOrderComplete",
-            pattern: "/laybuyOrderComplete/:orderID?",
-            path: require.resolve("./src/components/laybuyOrderComplete.js")
-        });
-        return routes;
-    });
+    // targets.of("@magento/venia-ui").routes.tap(routes => {
+    //     routes.push({
+    //         name: "LayBuyOrderComplete",
+    //         pattern: "/laybuyOrderComplete/:orderID?",
+    //         path: require.resolve("./src/components/laybuyOrderComplete.js")
+    //     });
+    //     return routes;
+    // });
 
     const { checkoutPagePaymentTypes } = targets.of('@magento/venia-ui');
 
@@ -26,9 +26,15 @@ module.exports = targets => {
                 payments.add({
                     paymentCode: 'laybuy_payment',
                     importPath:
-                        '@raisetech/pwa-laybuy/src/components/laybuy.js'
+                        '@raisetech/m2-pwa-laybuy/src/components/laybuy.js'
                 })
 
         }
     );
+
+    targets.of('@magento/peregrine').talons.tap(talons => {
+        talons.CheckoutPage.useCheckoutPage.wrapWith(
+            `@raisetech/m2-pwa-laybuy/src/wrapers/uwCheckout`
+        );
+    });
 };
