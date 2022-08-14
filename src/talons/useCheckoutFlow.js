@@ -71,6 +71,9 @@ export const useCheckoutFlow = (props) => {
      * @returns {*}
      */
     const isMyPaymentFlow = () => {
+        if (!selectedPaymentMethod) {
+            return false;
+        }
         let paymentMethod = selectedPaymentMethod.code;
         return paymentMethod.startsWith('laybuy_payment');
     };
